@@ -4,140 +4,128 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unknown Store</title>
-
 <style>
-body{
-  margin:0;
-  font-family: "Tajawal", sans-serif;
-  background:#0f0f0f;
-  color:white;
-  padding:20px;
+body {
+    margin: 0;
+    font-family: "Tajawal", sans-serif;
+    background: #111;
+    color: #fff;
 }
 
-h1{
-  text-align:center;
-  font-size:26px;
-  margin-bottom:25px;
-  animation: fade 1s ease;
+header {
+    text-align: center;
+    padding: 25px 0;
+    font-size: 32px;
+    font-weight: 700;
 }
 
-.container{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap:18px;
+.card {
+    width: 90%;
+    background: #1a1a1a;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #0004;
 }
 
-.card{
-  background:#1a1a1a;
-  padding:18px;
-  border-radius:14px;
-  text-align:center;
-  border:1px solid #2b2b2b;
-  transition:0.3s;
-  animation: up 0.8s ease;
+.card img {
+    width: 110px;
+    height: 110px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 15px;
+    object-fit: cover;
 }
 
-.card:hover{
-  transform:translateY(-5px);
-  border-color:#4d4d4d;
+.card h2 {
+    text-align: center;
+    margin: 10px 0 20px;
 }
 
-.card img{
-  width:70px;
-  margin-bottom:10px;
+.option {
+    background: #000;
+    padding: 14px;
+    border-radius: 14px;
+    margin: 10px 0;
+    font-size: 18px;
 }
 
-.price{
-  background:#111;
-  padding:10px;
-  border-radius:10px;
-  margin-top:10px;
+.order-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    background: #00d26a;
+    border: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
 }
-
-button{
-  margin-top:12px;
-  padding:10px;
-  width:100%;
-  border:none;
-  border-radius:10px;
-  background:#25D366;
-  color:white;
-  font-weight:bold;
-  font-size:15px;
-}
-
-button:hover{
-  background:#1fb85a;
-}
-
-/* ANIMATIONS */
-@keyframes fade{0%{opacity:0}100%{opacity:1}}
-@keyframes up{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+.order-btn:hover { opacity: 0.85; }
 </style>
 </head>
 
 <body>
 
-<h1>اشتراكات Unknown Store</h1>
+<header>اشتراكات Unknown Store</header>
 
-<div class="container">
+<!-- ---------------- Snapchat ---------------- -->
+<div class="card">
+    <img src="https://i.imgur.com/WfYVx1A.png">
+    <h2>Snapchat+</h2>
 
-  <div class="card">
-    <img src="https://i.imgur.com/7VQ2Q2h.png">
-    <h3>Snapchat+</h3>
-    <div class="price">3 أشهر — 250 MRU</div>
-    <div class="price">6 أشهر — 450 MRU</div>
-    <div class="price">12 شهر — 900 MRU</div>
-    <button onclick="openWhatsApp('Snapchat+')">اطلب الآن</button>
-  </div>
+    <div class="option">3 أشهر — 250 MRU</div>
+    <div class="option">6 أشهر — 450 MRU</div>
+    <div class="option">12 شهر — 900 MRU</div>
 
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg">
-    <h3>Netflix</h3>
-    <div class="price">شهر — 200 MRU</div>
-    <div class="price">حساب كامل — 700 MRU</div>
-    <button onclick="openWhatsApp('Netflix')">اطلب الآن</button>
-  </div>
-
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg">
-    <h3>ChatGPT</h3>
-    <div class="price">شهر — 650 MRU</div>
-    <button onclick="openWhatsApp('ChatGPT')">اطلب الآن</button>
-  </div>
-
-  <div class="card">
-    <img src="https://i.imgur.com/0gqB5eM.png">
-    <h3>Shahid VIP</h3>
-    <div class="price">شهر — 200 MRU</div>
-    <button onclick="openWhatsApp('Shahid VIP')">اطلب الآن</button>
-  </div>
-
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg">
-    <h3>Spotify</h3>
-    <div class="price">شهر — 200 MRU</div>
-    <button onclick="openWhatsApp('Spotify')">اطلب الآن</button>
-  </div>
-
-  <div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/TikTok_logo.svg">
-    <h3>TikTok Coins</h3>
-    <div class="price">70 — 50 MRU</div>
-    <div class="price">140 — 100 MRU</div>
-    <div class="price">350 — 280 MRU</div>
-    <div class="price">700 — 600 MRU</div>
-    <div class="price">1400 — 1050 MRU</div>
-    <button onclick="openWhatsApp('TikTok Coins')">اطلب الآن</button>
-  </div>
-
+    <button class="order-btn">اطلب الآن</button>
 </div>
 
-<script>
-function openWhatsApp(product){
-  window.location.href = `https://wa.me/447893920060?text=مرحباً أريد ${product}`;
-}
-</script>
+<!-- ---------------- Netflix ---------------- -->
+<div class="card">
+    <img src="https://i.imgur.com/4kt3Lz8.png">
+    <h2>Netflix</h2>
+
+    <div class="option">شهر — 200 MRU</div>
+    <div class="option">حساب كامل — 700 MRU</div>
+
+    <button class="order-btn">اطلب الآن</button>
+</div>
+
+<!-- ---------------- Shahid ---------------- -->
+<div class="card">
+    <img src="https://i.imgur.com/QLO8pGi.png">
+    <h2>Shahid VIP</h2>
+
+    <div class="option">شهر — 200 MRU</div>
+
+    <button class="order-btn">اطلب الآن</button>
+</div>
+
+<!-- ---------------- ChatGPT ---------------- -->
+<div class="card">
+    <img src="https://i.imgur.com/ihluw0S.png">
+    <h2>ChatGPT</h2>
+
+    <div class="option">شهر — 650 MRU</div>
+
+    <button class="order-btn">اطلب الآن</button>
+</div>
+
+<!-- ---------------- TikTok ---------------- -->
+<div class="card">
+    <img src="https://i.imgur.com/CELGmUH.png">
+    <h2>TikTok Coins</h2>
+
+    <div class="option">70 Coins — 50 MRU</div>
+    <div class="option">140 Coins — 100 MRU</div>
+    <div class="option">350 Coins — 280 MRU</div>
+    <div class="option">700 Coins — 600 MRU</div>
+    <div class="option">1400 Coins — 1050 MRU</div>
+
+    <button class="order-btn">اطلب الآن</button>
+</div>
 
 </body>
 </html>
