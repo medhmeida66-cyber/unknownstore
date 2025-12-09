@@ -2,184 +2,180 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<title>Unknown Store | الاشتراكات</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unknown Store</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin:0;
-    font-family:'Tajawal', sans-serif;
-    background:#020617;
-    color:white;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Tajawal', sans-serif;
 }
 
-/* Header */
-header {
-    background:#020617;
-    padding:12px;
-    text-align:center;
-    font-size:20px;
-    font-weight:bold;
-    border-bottom:1px solid #1f2937;
+body{
+  background:#000;
+  color:#fff;
+  padding:25px 12px 70px;
+  opacity:0;
+  animation:pageFade 0.9s ease forwards;
 }
 
-/* Container */
-.container {
-    max-width: 900px;
-    margin:20px auto;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap:15px;
-    padding: 0 10px;
+/* ====== PAGE FADE ANIMATION ====== */
+@keyframes pageFade {
+  from { opacity:0; }
+  to { opacity:1; }
 }
 
-/* Cards */
-.card {
-    background:#020617;
-    border:1px solid #1f2937;
-    border-radius:14px;
-    padding:15px;
-    text-align:center;
-    transition:0.2s;
+/* ====== FADE & SLIDE UP ====== */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(25px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
-.card img {
-    width:65px;
-    margin-bottom:10px;
+/* ====== LOGO PULSE ====== */
+@keyframes pulse {
+  0% { transform:scale(1); }
+  50% { transform:scale(1.06); }
+  100% { transform:scale(1); }
 }
 
-.card h3 {
-    margin:10px 0;
-    font-size:19px;
-    color:white;
+/* ====== TITLE ANIMATION ====== */
+@keyframes titlePop {
+  0% { opacity:0; transform:scale(0.8); }
+  100% { opacity:1; transform:scale(1); }
 }
 
-.price {
-    background:#0f172a;
-    padding:8px;
-    margin:5px 0;
-    border-radius:8px;
-    font-size:15px;
+/* عنوان الموقع */
+h1{
+  text-align:center;
+  margin-bottom:25px;
+  font-size:28px;
+  font-weight:700;
+  letter-spacing:1px;
+  animation:titlePop 0.8s ease forwards;
 }
 
-.btn {
-    background:#22c55e;
-    padding:10px;
-    margin-top:10px;
-    border-radius:8px;
-    font-weight:bold;
-    color:white;
-    display:block;
-    text-decoration:none;
-    transition:0.2s;
+/* الشبكة */
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:20px;
+  max-width:900px;
+  margin:auto;
 }
 
-.btn:hover {
-    background:#16a34a;
+/* الكروت */
+.card{
+  background:#111;
+  padding:20px;
+  border-radius:14px;
+  text-align:center;
+  border:1px solid #222;
+  transition:0.35s;
+  box-shadow:0 0 0px rgba(0,255,180,0);
+  opacity:0;
+  animation:fadeUp 0.9s ease forwards;
 }
 
-/* Footer */
-footer {
-    text-align:center;
-    margin:25px 0;
-    color:#cbd5e1;
-    font-size:14px;
+/* ترتيب ظهور الكروت */
+.card:nth-child(1){ animation-delay:0.15s; }
+.card:nth-child(2){ animation-delay:0.28s; }
+.card:nth-child(3){ animation-delay:0.40s; }
+.card:nth-child(4){ animation-delay:0.52s; }
+
+/* Hover مع GLOW ناعم */
+.card:hover{
+  transform:translateY(-6px) scale(1.02);
+  border-color:#333;
+  box-shadow:0 0 18px rgba(0,255,180,0.25);
 }
 
-/* 📱 تحسينات الجوال */
-@media(max-width: 480px) {
-    header { font-size:18px; padding:10px; }
+/* اللوقو */
+.logo{
+  width:65px;
+  height:65px;
+  object-fit:contain;
+  margin-bottom:12px;
+  animation:pulse 3s infinite ease-in-out;
+}
 
-    .container {
-        padding: 0 12px;
-        margin-top:10px;
-    }
+/* العنوان داخل الكارد */
+.title{
+  font-size:19px;
+  font-weight:700;
+  margin-bottom:12px;
+}
 
-    .card {
-        padding:12px;
-    }
+/* الباقات */
+.plan{
+  background:#1a1a1a;
+  padding:10px 14px;
+  border-radius:10px;
+  margin:8px 0;
+  display:flex;
+  justify-content:space-between;
+  font-size:15px;
+  border:1px solid #222;
+  transition:0.25s;
+}
 
-    .card img {
-        width:55px;
-    }
+/* Hover */
+.plan:hover{
+  background:#222;
+  border-color:#333;
+}
 
-    .price { font-size:14px; padding:6px; }
+/* زر شراء */
+.buy{
+  display:block;
+  background:#0ae98a;
+  padding:12px;
+  border-radius:10px;
+  color:#000;
+  text-decoration:none;
+  font-weight:700;
+  margin-top:10px;
+  transition:0.3s;
+}
 
-    .btn { padding:8px; font-size:15px; }
+.buy:hover{
+  background:#13f097;
+  transform:scale(1.06);
+}
+
+/* زر تواصل */
+.contact{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#0ae98a;
+  padding:14px 24px;
+  text-decoration:none;
+  color:#000;
+  border-radius:12px;
+  font-weight:700;
+  box-shadow:0 5px 20px rgba(0,0,0,0.5);
+  transition:0.3s;
+  animation:fadeUp 1.2s ease forwards;
+}
+
+.contact:hover{
+  transform:translateX(-50%) scale(1.08);
+  background:#13f097;
 }
 </style>
 </head>
 
 <body>
 
-<header>الاشتراكات - Unknown Store 📦</header>
+<h1>💎 اشتراكات Unknown Store</h1>
 
 <div class="container">
 
-    <!-- Snapchat -->
-    <div class="card">
-        <img src="">
-        <h3>+ Snapchat</h3>
-        <div class="price">MRU 250 – 3 أشهر</div>
-        <div class="price">MRU 450 – 6 أشهر</div>
-        <div class="price">MRU 900 – 12 أشهر</div>
-        <a class="btn" href="https://wa.me/447893920060">اطلب الآن</a>
-    </div>
-
-    <!-- Netflix -->
-    <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg">
-        <h3>Netflix</h3>
-        <div class="price">MRU 200 – شهر</div>
-        <div class="price">MRU 700 – حساب كامل</div>
-        <a class="btn" href="https://wa.me/447893920060">اطلب الآن</a>
-    </div>
-
-    <!-- ChatGPT Plus -->
-    <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg">
-        <h3>ChatGPT Plus</h3>
-        <div class="price">MRU 650 – شهر</div>
-        <a class="btn" href="https://wa.me/447893920060">اطلب الآن</a>
-    </div>
-
-    <!-- TikTok Coins -->
-    <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg">
-        <h3>TikTok Coins</h3>
-        <div class="price">MRU 50 – 70</div>
-        <div class="price">MRU 100 – 140</div>
-        <div class="price">MRU 280 – 350</div>
-        <div class="price">MRU 600 – 700</div>
-        <div class="price">MRU 1050 – 1400</div>
-        <a class="btn" href="https://wa.me/447893920060">اطلب الآن</a>
-    </div>
-
-    <!-- Spotify -->
-    <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg">
-        <h3>Spotify Premium</h3>
-        <div class="price">MRU 200 – شهر</div>
-        <a class="btn" href="https://wa.me/447893920060">اطلب الآن</a>
-    </div>
-
-</div>
-
-<footer>
-    
-<!-- زر تواصل معنا -->
-<div style="text-align:center; margin-top:25px;">
-  <a href="https://wa.me/447893920060"
-     style="display:inline-block;background:#25D366;color:#fff;padding:12px 25px;border-radius:10px;text-decoration:none;font-weight:bold;font-size:16px;"
-     target="_blank">
-     تواصل معنا عبر واتساب
-  </a>
-</div>
-
-<footer>
-   © 2025 Unknown Store
-</footer>
-
-</body>
-</html>
+  <!-- Snapchat+ -->
+  <div class="card">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/en
