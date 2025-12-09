@@ -206,8 +206,8 @@ services.forEach(s => {
         <img src="${s.img}">
         <h2>${s.name}</h2>
         ${s.prices.map(p => `<div class="option">${p}</div>`).join("")}
-        <button class="order-btn" onclick="order('${s.name}')">اطلب الآن</button>
-    </div>`;
+    </div>
+    `;
     box.innerHTML += card;
 });
 
