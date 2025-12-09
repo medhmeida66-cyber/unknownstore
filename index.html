@@ -11,8 +11,10 @@ body {
     font-family: "Tajawal", sans-serif;
     background: #0d0d0d;
     color: #fff;
+    overflow-x: hidden;
 }
 
+/* ===== Header ===== */
 header {
     text-align: center;
     padding: 25px;
@@ -21,6 +23,13 @@ header {
     background: #111;
     color: #00e6a8;
     border-bottom: 1px solid #ffffff15;
+    animation: fadeDown 1s ease;
+}
+
+/* ===== Fade Down Animation ===== */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .store {
@@ -28,6 +37,7 @@ header {
     margin: 20px auto;
 }
 
+/* ===== Card Styling ===== */
 .card {
     backdrop-filter: blur(16px);
     background: rgba(255,255,255,0.06);
@@ -36,21 +46,37 @@ header {
     padding: 22px;
     margin-bottom: 25px;
     box-shadow: 0 0 25px #0007;
-    animation: fadeIn 0.7s ease;
+    animation: fadeIn 0.7s ease forwards;
+    opacity: 0;
 }
+
+/* Stagger animation */
+.card:nth-child(1) { animation-delay: .1s; }
+.card:nth-child(2) { animation-delay: .25s; }
+.card:nth-child(3) { animation-delay: .4s; }
+.card:nth-child(4) { animation-delay: .55s; }
+.card:nth-child(5) { animation-delay: .7s; }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(25px) scale(.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+/* ===== Logo Animation ===== */
 .card img {
     width: 110px;
     height: 110px;
     display: block;
     margin: 10px auto 20px;
-    border-radius: 16px;
+    border-radius: 20px;
     object-fit: cover;
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 .card h2 {
@@ -59,15 +85,23 @@ header {
     font-size: 26px;
 }
 
+/* ===== Price Options ===== */
 .option {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.55);
     padding: 12px;
     margin: 8px 0;
     border-radius: 12px;
     font-size: 18px;
     border: 1px solid rgba(255,255,255,0.1);
+    transition: .25s;
 }
 
+.option:hover {
+    transform: scale(1.03);
+    background: rgba(255,255,255,0.08);
+}
+
+/* ===== Order Button ===== */
 .order-btn {
     width: 100%;
     padding: 15px;
@@ -78,24 +112,45 @@ header {
     font-size: 20px;
     font-weight: bold;
     margin-top: 15px;
+    transition: 0.25s;
+    box-shadow: 0 0 12px #00e6a860;
 }
-.order-btn:hover { opacity: .85; cursor: pointer; }
 
-/* زر واتساب ثابت */
+.order-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px #00e6a8aa;
+    cursor: pointer;
+}
+
+.order-btn:active {
+    transform: scale(.97);
+}
+
+/* ===== WhatsApp Floating Button ===== */
 .whatsapp-btn {
     position: fixed;
-    bottom: 18px;
-    left: 18px;
+    bottom: 20px;
+    left: 20px;
     background: #25D366;
-    padding: 15px 20px;
+    padding: 16px 22px;
     border-radius: 50px;
     font-size: 18px;
     color: #fff;
     text-decoration: none;
-    box-shadow: 0 0 12px #000;
+    box-shadow: 0 0 18px #000;
     font-weight: bold;
+    animation: fadeUp 1.2s ease;
+    transition: .25s;
 }
-.whatsapp-btn:hover { opacity: .85; }
+
+.whatsapp-btn:hover {
+    transform: scale(1.07);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
 </style>
 
 </head>
@@ -111,27 +166,27 @@ header {
 <script>
 const services = [
     {
-        img: "https://i.postimg.cc/8CjJq7V2/snapchat.png",
+        img: "https://i.imgur.com/9i3YyNv.png",
         name: "Snapchat+",
         prices: ["3 أشهر — 250 MRU", "6 أشهر — 450 MRU", "12 شهر — 900 MRU"]
     },
-    
-        img: "https://i.postimg.cc/1X2cZ5kY/netflix.png",
+    {
+        img: "https://i.imgur.com/ALpE7JG.png",
         name: "Netflix",
         prices: ["شهر — 200 MRU", "حساب كامل — 700 MRU"]
     },
     {
-        img: "https://i.postimg.cc/J4bg7yNm/shahid.png",
+        img: "https://i.imgur.com/VNqnuG3.png",
         name: "Shahid VIP",
         prices: ["شهر — 200 MRU"]
     },
     {
-        img: "https://i.postimg.cc/J4bg7yNm/shahid.png",
+        img: "https://i.imgur.com/nVNq2yo.png",
         name: "ChatGPT",
         prices: ["شهر — 650 MRU"]
     },
     {
-        img: "https://i.postimg.cc/HnNvrsPg/tiktok.png",
+        img: "https://i.imgur.com/xonbX8Y.png",
         name: "TikTok Coins",
         prices: [
             "70 Coins — 50 MRU",
