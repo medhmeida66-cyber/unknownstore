@@ -7,170 +7,168 @@
 
 <style>
 body {
-  margin:0;
-  font-family:'Tajawal', sans-serif;
-  background:linear-gradient(145deg,#020617,#0f172a);
-  color:white;
+    margin:0;
+    font-family:'Tajawal', sans-serif;
+    background:#020617;
+    color:white;
 }
 
+/* Header */
 header {
-  background:#020617;
-  padding:15px;
-  text-align:center;
-  font-size:22px;
-  font-weight:bold;
-  border-bottom:1px solid #1f2937;
+    background:#020617;
+    padding:12px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    border-bottom:1px solid #1f2937;
 }
 
+/* Container */
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    max-width: 900px;
+    margin:20px auto;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:15px;
     padding: 0 10px;
 }
 
+/* Cards */
 .card {
-  background:#020617;
-  border:1px solid #1f2937;
-  border-radius:16px;
-  padding:20px;
-  text-align:center;
-  transition:0.3s;
+    background:#020617;
+    border:1px solid #1f2937;
+    border-radius:14px;
+    padding:15px;
+    text-align:center;
+    transition:0.2s;
 }
 
-.card:hover {
-  transform: translateY(-6px);
+.card img {
+    width:65px;
+    margin-bottom:10px;
 }
 
-.logo {
-  width:70px;
-  height:70px;
-  margin-bottom:15px;
-  object-fit:contain;
-}
-
-.title {
-  font-size:18px;
-  margin-bottom:15px;
-  font-weight:bold;
+.card h3 {
+    margin:10px 0;
+    font-size:19px;
+    color:white;
 }
 
 .price {
-  background:#0f172a;
-  padding:8px;
-  margin:6px 0;
-  border-radius:8px;
-  font-size:15px;
+    background:#0f172a;
+    padding:8px;
+    margin:5px 0;
+    border-radius:8px;
+    font-size:15px;
 }
 
 .btn {
-  display:block;
-  margin-top:15px;
-  padding:10px;
-  border-radius:10px;
-  background:#22c55e;
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:14px;
+    background:#22c55e;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+    font-weight:bold;
+    color:white;
+    display:block;
+    text-decoration:none;
+    transition:0.2s;
 }
 
-.whatsapp {
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:#25D366;
-  color:white;
-  padding:15px;
-  border-radius:50%;
-  font-size:22px;
-  text-decoration:none;
-  box-shadow:0 5px 15px rgba(0,0,0,0.5);
+.btn:hover {
+    background:#16a34a;
 }
 
+/* Footer */
 footer {
-  text-align:center;
-  padding:15px;
-  opacity:.6;
-  font-size:14px;
-  margin-top:30px;
+    text-align:center;
+    margin:25px 0;
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+/* 📱 تحسينات الجوال */
+@media(max-width: 480px) {
+    header { font-size:18px; padding:10px; }
+
+    .container {
+        padding: 0 12px;
+        margin-top:10px;
+    }
+
+    .card {
+        padding:12px;
+    }
+
+    .card img {
+        width:55px;
+    }
+
+    .price { font-size:14px; padding:6px; }
+
+    .btn { padding:8px; font-size:15px; }
 }
 </style>
 </head>
+
 <body>
 
-<header>
-📦 Unknown Store - الاشتراكات
-</header>
+<header>الاشتراكات - Unknown Store 📦</header>
 
 <div class="container">
 
-<!-- ChatGPT -->
-<div class="card">
-  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg">
-  <div class="title">ChatGPT Plus</div>
-  <div class="price">شهر — 650 MRU</div>
-  <a class="btn" href="https://wa.me/447893920060?text=أريد اشتراك ChatGPT Plus">طلب الآن</a>
-</div>
+    <!-- Snapchat -->
+    <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Snapchat_logo.svg">
+        <h3>+ Snapchat</h3>
+        <div class="price">MRU 250 – 3 أشهر</div>
+        <div class="price">MRU 450 – 6 أشهر</div>
+        <div class="price">MRU 900 – 12 أشهر</div>
+        <a class="btn" href="#">اطلب الآن</a>
+    </div>
 
-<!-- Netflix -->
-<div class="card">
-  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg">
-  <div class="title">Netflix</div>
-  <div class="price">شهر — 200 MRU</div>
-  <div class="price">حساب كامل — 700 MRU</div>
-  <a class="btn" href="https://wa.me/447893920060?text=أريد اشتراك Netflix">طلب الآن</a>
-</div>
+    <!-- Netflix -->
+    <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg">
+        <h3>Netflix</h3>
+        <div class="price">MRU 200 – شهر</div>
+        <div class="price">MRU 700 – حساب كامل</div>
+        <a class="btn" href="#">اطلب الآن</a>
+    </div>
 
-<!-- Snapchat -->
-<div class="card">
-  <img class="logo" src="https://cdn-icons-png.flaticon.com/512/1384/1384066.png">
-  <div class="title">Snapchat +</div>
-  <div class="price">3 أشهر — 250 MRU</div>
-  <div class="price">6 أشهر — 450 MRU</div>
-  <div class="price">12 شهر — 900 MRU</div>
-  <a class="btn" href="https://wa.me/447893920060?text=أريد اشتراك Snapchat+">طلب الآن</a>
-</div>
-  
-<!-- Spotify -->
-<div class="card">
-  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg">
-  <div class="title">Spotify Premium</div>
-  <div class="price">شهر — 200 MRU</div>
-  <a class="btn" href="https://wa.me/447893920060?text=أريد اشتراك Spotify">طلب الآن</a>
-</div>
+    <!-- ChatGPT Plus -->
+    <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg">
+        <h3>ChatGPT Plus</h3>
+        <div class="price">MRU 650 – شهر</div>
+        <a class="btn" href="#">اطلب الآن</a>
+    </div>
 
-<!-- TikTok -->
-<div class="card">
-  <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg">
-  <div class="title">TikTok Coins</div>
-  <div class="price">70 — 50 MRU</div>
-  <div class="price">140 — 100 MRU</div>
-  <div class="price">350 — 280 MRU</div>
-  <div class="price">700 — 600 MRU</div>
-  <div class="price">1400 — 1050 MRU</div>
-  <a class="btn" href="https://wa.me/447893920060?text=أريد شحن تيك توك">طلب الآن</a>
-</div>
+    <!-- TikTok Coins -->
+    <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg">
+        <h3>TikTok Coins</h3>
+        <div class="price">MRU 50 – 70</div>
+        <div class="price">MRU 100 – 140</div>
+        <div class="price">MRU 280 – 350</div>
+        <div class="price">MRU 600 – 700</div>
+        <div class="price">MRU 1050 – 1400</div>
+        <a class="btn" href="#">اطلب الآن</a>
+    </div>
+
+    <!-- Spotify -->
+    <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg">
+        <h3>Spotify Premium</h3>
+        <div class="price">MRU 200 – شهر</div>
+        <a class="btn" href="#">اطلب الآن</a>
+    </div>
 
 </div>
-
-<!-- زر واتساب عائم -->
-<a class="whatsapp" href="https://wa.me/447893920060">💬</a>
 
 <footer>
-© Unknown Store 2025 — WhatsApp: +44 7893 920060
+    Unknown Store 2025 — WhatsApp: +44 7883 520066 <br>
+    تابعنا على Instagram: @odyx_9 — TikTok: @odyx.9 — Snapchat: @user_odyx9
 </footer>
-  
-<footer class="social-footer">
-  <p>تابعنا على</p>
-  <div class="social-icons">
-    Instagram : @odyx_9      
-    
-  --  TikTok : @odyx.9      
-    
-  --  Snapchat : @user_odyx9     
-</footer>
+
 </body>
 </html>
