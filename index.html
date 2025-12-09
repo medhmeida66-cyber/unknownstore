@@ -1,173 +1,141 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unknown Store</title>
 
 <style>
-body {
-    background: #0d0d0d;
-    color: white;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 15px;
+body{
+  margin:0;
+  font-family: "Tajawal", sans-serif;
+  background:#0f0f0f;
+  color:white;
+  padding:20px;
 }
 
-header {
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 25px;
+h1{
+  text-align:center;
+  font-size:26px;
+  margin-bottom:25px;
+  animation: fade 1s ease;
 }
 
-/* كروت */
-.card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 18px;
-    margin-bottom: 25px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeSlide 1s forwards;
+.container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:18px;
 }
 
-/* صور HD */
-.card img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 10px;
+.card{
+  background:#1a1a1a;
+  padding:18px;
+  border-radius:14px;
+  text-align:center;
+  border:1px solid #2b2b2b;
+  transition:0.3s;
+  animation: up 0.8s ease;
 }
 
-.card h2 {
-    text-align: center;
-    margin-top: 0;
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#4d4d4d;
 }
 
-.price {
-    text-align: center;
-    line-height: 1.8;
-    font-size: 17px;
-    margin-bottom: 15px;
+.card img{
+  width:70px;
+  margin-bottom:10px;
 }
 
-button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    background: #00d26a;
-    color: white;
-    font-size: 18px;
-    border-radius: 12px;
-    font-weight: bold;
+.price{
+  background:#111;
+  padding:10px;
+  border-radius:10px;
+  margin-top:10px;
 }
 
-/* Animation */
-@keyframes fadeSlide {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+button{
+  margin-top:12px;
+  padding:10px;
+  width:100%;
+  border:none;
+  border-radius:10px;
+  background:#25D366;
+  color:white;
+  font-weight:bold;
+  font-size:15px;
 }
 
-/* زر تواصل */
-.contact {
-    position: fixed;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 85%;
-    background: #008cff;
-    text-align: center;
-    padding: 15px;
-    border-radius: 14px;
-    color: white;
-    font-size: 20px;
+button:hover{
+  background:#1fb85a;
 }
+
+/* ANIMATIONS */
+@keyframes fade{0%{opacity:0}100%{opacity:1}}
+@keyframes up{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 
 <body>
 
-<header>💎 Unknown Store - الاشتراكات</header>
+<h1>اشتراكات Unknown Store</h1>
 
-<!-- Netflix -->
-<div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg">
-    <h2>Netflix</h2>
-    <div class="price">
-        MRU 200 = شهر<br>
-        MRU 700 = حساب كامل
-    </div>
-    <button onclick="order('Netflix')">اطلب الآن</button>
-</div>
+<div class="container">
 
-<!-- Snapchat+ -->
-<div class="card">
+  <div class="card">
     <img src="https://i.imgur.com/7VQ2Q2h.png">
-    <h2>Snapchat+</h2>
-    <div class="price">
-        MRU 250 = 3 أشهر<br>
-        MRU 450 = 6 أشهر<br>
-        MRU 900 = 12 شهر
-    </div>
-    <button onclick="order('Snapchat+')">اطلب الآن</button>
-</div>
+    <h3>Snapchat+</h3>
+    <div class="price">3 أشهر — 250 MRU</div>
+    <div class="price">6 أشهر — 450 MRU</div>
+    <div class="price">12 شهر — 900 MRU</div>
+    <button onclick="openWhatsApp('Snapchat+')">اطلب الآن</button>
+  </div>
 
-<!-- Spotify -->
-<div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg">
-    <h2>Spotify</h2>
-    <div class="price">
-        MRU 200 = شهر
-    </div>
-    <button onclick="order('Spotify')">اطلب الآن</button>
-</div>
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg">
+    <h3>Netflix</h3>
+    <div class="price">شهر — 200 MRU</div>
+    <div class="price">حساب كامل — 700 MRU</div>
+    <button onclick="openWhatsApp('Netflix')">اطلب الآن</button>
+  </div>
 
-<!-- Shahid VIP -->
-<div class="card">
-    <img src="<img src="<img src="https://i.imgur.com/0gqB5eM.png" class="service-icon">
-    <h2>Shahid VIP</h2>
-    <div class="price">
-        MRU 200 = شهر
-    </div>
-    <button onclick="order('Shahid VIP')">اطلب الآن</button>
-</div>
-
-<!-- ChatGPT -->
-<div class="card">
+  <div class="card">
     <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg">
-    <h2>ChatGPT Plus</h2>
-    <div class="price">
-        MRU 650 = شهر
-    </div>
-    <button onclick="order('ChatGPT Plus')">اطلب الآن</button>
-</div>
+    <h3>ChatGPT</h3>
+    <div class="price">شهر — 650 MRU</div>
+    <button onclick="openWhatsApp('ChatGPT')">اطلب الآن</button>
+  </div>
 
-<!-- TikTok -->
-<div class="card">
-    <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg">
-    <h2>TikTok Coins</h2>
-    <div class="price">
-        70 = 50 MRU<br>
-        140 = 100 MRU<br>
-        350 = 280 MRU<br>
-        700 = 600 MRU<br>
-        1400 = 1050 MRU
-    </div>
-    <button onclick="order('TikTok Coins')">اطلب الآن</button>
-</div>
+  <div class="card">
+    <img src="https://i.imgur.com/0gqB5eM.png">
+    <h3>Shahid VIP</h3>
+    <div class="price">شهر — 200 MRU</div>
+    <button onclick="openWhatsApp('Shahid VIP')">اطلب الآن</button>
+  </div>
 
-<!-- زر تواصل -->
-<a class="contact" href="https://wa.me/447893920060">تواصل معنا عبر الواتساب</a>
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg">
+    <h3>Spotify</h3>
+    <div class="price">شهر — 200 MRU</div>
+    <button onclick="openWhatsApp('Spotify')">اطلب الآن</button>
+  </div>
+
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/TikTok_logo.svg">
+    <h3>TikTok Coins</h3>
+    <div class="price">70 — 50 MRU</div>
+    <div class="price">140 — 100 MRU</div>
+    <div class="price">350 — 280 MRU</div>
+    <div class="price">700 — 600 MRU</div>
+    <div class="price">1400 — 1050 MRU</div>
+    <button onclick="openWhatsApp('TikTok Coins')">اطلب الآن</button>
+  </div>
+
+</div>
 
 <script>
-function order(service){
-    window.location.href = "https://wa.me/447893920060?text=اريد اشتراك " + encodeURIComponent(service);
+function openWhatsApp(product){
+  window.location.href = `https://wa.me/447893920060?text=مرحباً أريد ${product}`;
 }
 </script>
 
