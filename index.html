@@ -4,128 +4,135 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unknown Store</title>
+
 <style>
 body {
     margin: 0;
     font-family: "Tajawal", sans-serif;
-    background: #111;
+    background: linear-gradient(140deg,#0c0c0c,#111,#0e0e0e);
     color: #fff;
 }
 
 header {
     text-align: center;
-    padding: 25px 0;
-    font-size: 32px;
-    font-weight: 700;
+    padding: 30px 0;
+    font-size: 34px;
+    font-weight: 800;
+    color: #00ffa6;
+    text-shadow: 0 0 15px #00ffa677;
 }
 
 .card {
     width: 90%;
-    background: #1a1a1a;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px #0004;
+    margin: 25px auto;
+    padding: 25px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 22px;
+    backdrop-filter: blur(10px);
+    border: 1px solid #ffffff1a;
+    box-shadow: 0 0 25px #0005;
+    transition: transform .2s;
+}
+.card:hover {
+    transform: scale(1.02);
 }
 
 .card img {
-    width: 110px;
-    height: 110px;
+    width: 120px;
+    height: 120px;
     display: block;
-    margin: 10px auto;
-    border-radius: 15px;
+    margin: 10px auto 20px;
     object-fit: cover;
+    border-radius: 20px;
+    background: #000;
 }
 
 .card h2 {
     text-align: center;
-    margin: 10px 0 20px;
+    margin-bottom: 18px;
+    font-size: 26px;
 }
 
 .option {
-    background: #000;
-    padding: 14px;
+    background: #00000070;
+    padding: 15px;
+    font-size: 18px;
     border-radius: 14px;
     margin: 10px 0;
-    font-size: 18px;
 }
 
 .order-btn {
     width: 100%;
-    padding: 14px;
-    border-radius: 14px;
-    background: #00d26a;
+    padding: 15px;
+    background: #00ffa6;
     border: none;
-    color: #000;
+    border-radius: 14px;
     font-size: 20px;
     font-weight: bold;
-    cursor: pointer;
     margin-top: 15px;
+    cursor: pointer;
 }
 .order-btn:hover { opacity: 0.85; }
 </style>
-</head>
 
+</head>
 <body>
 
-<header>اشتراكات Unknown Store</header>
+<header>Unknown Store</header>
 
-<!-- ---------------- Snapchat ---------------- -->
-<div class="card">
-    <img src="https://i.imgur.com/WfYVx1A.png">
-    <h2>Snapchat+</h2>
+<div id="content"></div>
 
-    <div class="option">3 أشهر — 250 MRU</div>
-    <div class="option">6 أشهر — 450 MRU</div>
-    <div class="option">12 شهر — 900 MRU</div>
+<script>
+const data = [
+    {
+        img: "https://i.imgur.com/WfYVx1A.png",
+        name: "Snapchat+",
+        prices: ["3 أشهر — 250 MRU", "6 أشهر — 450 MRU", "12 شهر — 900 MRU"]
+    },
+    {
+        img: "https://i.imgur.com/4kt3Lz8.png",
+        name: "Netflix",
+        prices: ["شهر — 200 MRU", "حساب كامل — 700 MRU"]
+    },
+    {
+        img: "https://i.imgur.com/QLO8pGi.png",
+        name: "Shahid VIP",
+        prices: ["شهر — 200 MRU"]
+    },
+    {
+        img: "https://i.imgur.com/ihluw0S.png",
+        name: "ChatGPT",
+        prices: ["شهر — 650 MRU"]
+    },
+    {
+        img: "https://i.imgur.com/CELGmUH.png",
+        name: "TikTok Coins",
+        prices: [
+            "70 Coins — 50 MRU",
+            "140 Coins — 100 MRU",
+            "350 Coins — 280 MRU",
+            "700 Coins — 600 MRU",
+            "1400 Coins — 1050 MRU"
+        ]
+    }
+];
 
-    <button class="order-btn">اطلب الآن</button>
-</div>
+const container = document.getElementById("content");
 
-<!-- ---------------- Netflix ---------------- -->
-<div class="card">
-    <img src="https://i.imgur.com/4kt3Lz8.png">
-    <h2>Netflix</h2>
+data.forEach(service => {
+    let card = `<div class="card">
+        <img src="${service.img}">
+        <h2>${service.name}</h2>
+        ${service.prices.map(p => `<div class="option">${p}</div>`).join("")}
+        <button onclick="order('${service.name}')" class="order-btn">اطلب الآن</button>
+    </div>`;
+    container.innerHTML += card;
+});
 
-    <div class="option">شهر — 200 MRU</div>
-    <div class="option">حساب كامل — 700 MRU</div>
-
-    <button class="order-btn">اطلب الآن</button>
-</div>
-
-<!-- ---------------- Shahid ---------------- -->
-<div class="card">
-    <img src="https://i.imgur.com/QLO8pGi.png">
-    <h2>Shahid VIP</h2>
-
-    <div class="option">شهر — 200 MRU</div>
-
-    <button class="order-btn">اطلب الآن</button>
-</div>
-
-<!-- ---------------- ChatGPT ---------------- -->
-<div class="card">
-    <img src="https://i.imgur.com/ihluw0S.png">
-    <h2>ChatGPT</h2>
-
-    <div class="option">شهر — 650 MRU</div>
-
-    <button class="order-btn">اطلب الآن</button>
-</div>
-
-<!-- ---------------- TikTok ---------------- -->
-<div class="card">
-    <img src="https://i.imgur.com/CELGmUH.png">
-    <h2>TikTok Coins</h2>
-
-    <div class="option">70 Coins — 50 MRU</div>
-    <div class="option">140 Coins — 100 MRU</div>
-    <div class="option">350 Coins — 280 MRU</div>
-    <div class="option">700 Coins — 600 MRU</div>
-    <div class="option">1400 Coins — 1050 MRU</div>
-
-    <button class="order-btn">اطلب الآن</button>
-</div>
+function order(service){
+    window.location.href = "https://wa.me/447893920060?text=أريد%20الاشتراك%20في%20" + encodeURIComponent(service);
+}
+</script>
 
 </body>
 </html>
