@@ -22,129 +22,71 @@ header {
     font-weight: 800;
     background: #111;
     color: #00e6a8;
-    border-bottom: 1px solid #ffffff15;
     animation: fadeDown 1s ease;
 }
 
-/* ===== Fade Down Animation ===== */
 @keyframes fadeDown {
     from { opacity: 0; transform: translateY(-20px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ===== Container ===== */
 .store {
-    width: 92%;
-    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 25px;
 }
 
-/* ===== Card Styling ===== */
+/* ===== Card ===== */
 .card {
-    backdrop-filter: blur(16px);
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-    padding: 22px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 25px #0007;
-    animation: fadeIn 0.7s ease forwards;
-    opacity: 0;
+    background: #141414;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 15px #0006;
+    animation: fadeUp 0.8s ease;
+    transition: .3s;
 }
 
-/* Stagger animation */
-.card:nth-child(1) { animation-delay: .1s; }
-.card:nth-child(2) { animation-delay: .25s; }
-.card:nth-child(3) { animation-delay: .4s; }
-.card:nth-child(4) { animation-delay: .55s; }
-.card:nth-child(5) { animation-delay: .7s; }
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(25px) scale(.96); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00e6a855;
 }
 
-/* ===== Logo Animation ===== */
 .card img {
-    width: 110px;
-    height: 110px;
-    display: block;
-    margin: 10px auto 20px;
-    border-radius: 20px;
-    object-fit: cover;
-    animation: pulse 2.5s infinite ease-in-out;
-}
-
-@keyframes pulse {
-    0%   { transform: scale(1); }
-    50%  { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    width: 85px;
+    margin-bottom: 10px;
 }
 
 .card h2 {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 26px;
+    font-size: 22px;
+    margin-bottom: 12px;
 }
 
-/* ===== Price Options ===== */
+/* ===== Pricing Option ===== */
 .option {
-    background: rgba(0,0,0,0.55);
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 12px;
-    font-size: 18px;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: .25s;
+    background: #1f1f1f;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    font-size: 15px;
+    border: 1px solid #00e6a822;
 }
 
-.option:hover {
-    transform: scale(1.03);
-    background: rgba(255,255,255,0.08);
-}
-
-/* ===== Order Button ===== */
-.order-btn {
-    width: 100%;
-    padding: 15px;
-    background: #00e6a8;
-    border: none;
-    border-radius: 13px;
-    color: #000;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 15px;
-    transition: 0.25s;
-    box-shadow: 0 0 12px #00e6a860;
-}
-
-.order-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 18px #00e6a8aa;
-    cursor: pointer;
-}
-
-.order-btn:active {
-    transform: scale(.97);
-}
-
-/* ===== WhatsApp Floating Button ===== */
+/* ===== WhatsApp Button ===== */
 .whatsapp-btn {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: #25D366;
-    padding: 16px 22px;
-    border-radius: 50px;
-    font-size: 18px;
-    color: #fff;
+    bottom: 25px;
+    left: 25px;
+    background: #25d366;
+    color: white;
+    padding: 14px 22px;
+    border-radius: 40px;
     text-decoration: none;
-    box-shadow: 0 0 18px #000;
+    font-size: 18px;
     font-weight: bold;
-    animation: fadeUp 1.2s ease;
-    transition: .25s;
-}
-
-.whatsapp-btn:hover {
-    transform: scale(1.07);
+    box-shadow: 0 0 20px #0008;
 }
 
 @keyframes fadeUp {
@@ -152,43 +94,42 @@ header {
     to   { opacity: 1; transform: translateY(0); }
 }
 </style>
-
 </head>
 <body>
 
-<header> 📍 Unknown Store 📍</header>
+<header>📍 Unknown Store 📍</header>
 
 <div id="content" class="store"></div>
 
-<!-- زر تواصل ثابت -->
 <a href="https://wa.me/447893920060" class="whatsapp-btn">تواصل معنا</a>
 
 <script>
+// ---- ALL SERVICES ----
 const services = [
     {
-        img: "https://raw.githubusercontent.com/medhmeida66-cyber/unknownstore/main/IMG_1540.png" alt="product">
-        name: "Snapchat+",
-        prices: ["3 أشهر — 250 MRU", "6 أشهر — 450 MRU", "12 شهر — 900 MRU"]
+        img:"IMG_1540.png",
+        name:"Snapchat+",
+        prices:["3 أشهر — 250 MRU", "6 أشهر — 450 MRU", "12 شهر — 900 MRU"]
     },
     {
-        img: "https://raw.githubusercontent.com/medhmeida66-cyber/unknownstore/main/IMG_1918.png" alt="product">
-        name: "Netflix",
-        prices: ["شهر — 200 MRU", "حساب كامل — 700 MRU"]
+        img:"IMG_1918.png",
+        name:"Netflix",
+        prices:["شهر — 200 MRU", "حساب كامل — 700 MRU"]
     },
     {
-        img: "https://i.imgur.com/VNqnuG3.png",
-        name: "Shahid VIP",
-        prices: ["شهر — 200 MRU"]
+        img:"IMG_1920.webp",
+        name:"Shahid VIP",
+        prices:["شهر — 200 MRU"]
     },
     {
-        img: "https://raw.githubusercontent.com/medhmeida66-cyber/unknownstore/main/IMG_1922.webp" alt="product">
-        name: "ChatGPT",
-        prices: ["شهر — 650 MRU"]
+        img:"IMG_1921.webp",
+        name:"ChatGPT",
+        prices:["شهر — 650 MRU"]
     },
     {
-        img: "https://raw.githubusercontent.com/medhmeida66-cyber/unknownstore/main/IMG_1921.webp" alt="product">
-        name: "TikTok Coins",
-        prices: [
+        img:"IMG_1922.webp",
+        name:"TikTok Coins",
+        prices:[
             "70 Coins — 50 MRU",
             "140 Coins — 100 MRU",
             "350 Coins — 280 MRU",
@@ -198,22 +139,18 @@ const services = [
     }
 ];
 
+// ---- GENERATE HTML ----
 const box = document.getElementById("content");
 
 services.forEach(s => {
-    let card = `
-    <div class="card">
-        <img src="${s.img}">
-        <h2>${s.name}</h2>
-        ${s.prices.map(p => `<div class="option">${p}</div>`).join("")}
-    </div>
+    box.innerHTML += `
+        <div class="card">
+            <img src="${s.img}">
+            <h2>${s.name}</h2>
+            ${s.prices.map(p => `<div class="option">${p}</div>`).join("")}
+        </div>
     `;
-    box.innerHTML += card;
 });
-
-function order(name){
-    window.location.href = "https://wa.me/447893920060?text=أريد%20طلب%20اشتراك%20" + encodeURIComponent(name);
-}
 </script>
 
 </body>
