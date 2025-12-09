@@ -1,157 +1,135 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unknown Store</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: "Tajawal", sans-serif;
-    background: #0d0d0d;
-    color: #fff;
-    overflow-x: hidden;
-}
+    body {
+        font-family: sans-serif;
+        background: #0d0d0d;
+        color: white;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
 
-/* ===== Header ===== */
-header {
-    text-align: center;
-    padding: 25px;
-    font-size: 32px;
-    font-weight: 800;
-    background: #111;
-    color: #00e6a8;
-    animation: fadeDown 1s ease;
-}
+    header {
+        padding: 20px;
+        font-size: 26px;
+        font-weight: bold;
+    }
 
-@keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
+    .store {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
 
-/* ===== Container ===== */
-.store {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 25px;
-    padding: 25px;
-}
+    .card {
+        background: #1a1a1a;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px #000;
+        transition: 0.3s;
+    }
 
-/* ===== Card ===== */
-.card {
-    background: #141414;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 0 15px #0006;
-    animation: fadeUp 0.8s ease;
-    transition: .3s;
-}
+    .card:hover {
+        transform: scale(1.04);
+    }
 
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #00e6a855;
-}
+    .card img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 10px;
+    }
 
-.card img {
-    width: 85px;
-    margin-bottom: 10px;
-}
+    .option {
+        background: #222;
+        padding: 8px;
+        border-radius: 10px;
+        margin: 5px 0;
+        font-size: 14px;
+    }
 
-.card h2 {
-    font-size: 22px;
-    margin-bottom: 12px;
-}
+    /* زر اطلب الآن */
+    .order-btn {
+        display: block;
+        width: 100%;
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #0099ff, #00ccff);
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
 
-/* ===== Pricing Option ===== */
-.option {
-    background: #1f1f1f;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 5px 0;
-    font-size: 15px;
-    border: 1px solid #00e6a822;
-}
-
-/* ===== WhatsApp Button ===== */
-.whatsapp-btn {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
-    background: #25d366;
-    color: white;
-    padding: 14px 22px;
-    border-radius: 40px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 0 0 20px #0008;
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
+    .order-btn:hover {
+        opacity: 0.8;
+        transform: scale(1.03);
+    }
 </style>
 </head>
+
 <body>
 
 <header>📍 Unknown Store 📍</header>
 
 <div id="content" class="store"></div>
 
-<a href="https://wa.me/447893920060" class="whatsapp-btn">تواصل معنا</a>
-
 <script>
 // ---- ALL SERVICES ----
 const services = [
     {
-        img:"IMG_1540.png",
-        name:"Snapchat+",
-        prices:["3 أشهر — 250 MRU", "6 أشهر — 450 MRU", "12 شهر — 900 MRU"]
+        img: "IMG_1540.png",
+        name: "Snapchat",
+        prices: ["3 أشهر – 250 MRU", "6 أشهر – 450 MRU"]
     },
     {
-        img:"IMG_1918.png",
-        name:"Netflix",
-        prices:["شهر — 200 MRU", "حساب كامل — 700 MRU"]
-        <a href="https://wa.me/447893920060" class="order-btn">اطلب الآن</a>
-    </div>
+        img: "IMG_1918.png",
+        name: "Netflix",
+        prices: ["200 – شهر MRU", "حساب كامل – 700 MRU"]
     },
     {
-        img:"IMG_1920.webp",
-        name:"Shahid VIP",
-        prices:["شهر — 200 MRU"]
+        img: "IMG_1920.webp",
+        name: "Shahid VIP",
+        prices: ["200 – شهر MRU"]
     },
     {
-        img:"IMG_1922.webp",
-        name:"ChatGPT",
-        prices:["شهر — 650 MRU"]
+        img: "IMG_1921.webp",
+        name: "ChatGPT",
+        prices: ["650 – شهر MRU"]
     },
     {
-        img:"IMG_1921.webp",
-        name:"TikTok Coins",
-        prices:[
-            "70 Coins — 50 MRU",
-            "140 Coins — 100 MRU",
-            "350 Coins — 280 MRU",
-            "700 Coins — 600 MRU",
-            "1400 Coins — 1050 MRU"
+        img: "IMG_1922.webp",
+        name: "TikTok Coins",
+        prices: [
+            "70 Coins – 50 MRU",
+            "140 Coins – 100 MRU",
+            "350 Coins – 280 MRU",
+            "700 Coins – 550 MRU",
+            "1400 Coins – 1050 MRU"
         ]
     }
 ];
 
-// ---- GENERATE HTML ----
-const box = document.getElementById("content");
+// ---- RENDER ----
+let area = document.getElementById("content");
 
 services.forEach(s => {
-    box.innerHTML += `
+    let card = `
         <div class="card">
             <img src="${s.img}">
             <h2>${s.name}</h2>
             ${s.prices.map(p => `<div class="option">${p}</div>`).join("")}
+            <a class="order-btn" href="https://wa.me/447893920060">اطلب الآن</a>
         </div>
     `;
+    area.innerHTML += card;
 });
 </script>
 
