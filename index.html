@@ -9,103 +9,129 @@
 body {
     margin: 0;
     font-family: "Tajawal", sans-serif;
-    background: linear-gradient(140deg,#0c0c0c,#111,#0e0e0e);
+    background: #0d0d0d;
     color: #fff;
 }
 
 header {
     text-align: center;
-    padding: 30px 0;
-    font-size: 34px;
+    padding: 25px;
+    font-size: 32px;
     font-weight: 800;
-    color: #00ffa6;
-    text-shadow: 0 0 15px #00ffa677;
+    background: #111;
+    color: #00e6a8;
+    border-bottom: 1px solid #ffffff15;
+}
+
+.store {
+    width: 92%;
+    margin: 20px auto;
 }
 
 .card {
-    width: 90%;
-    margin: 25px auto;
-    padding: 25px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 22px;
-    backdrop-filter: blur(10px);
-    border: 1px solid #ffffff1a;
-    box-shadow: 0 0 25px #0005;
-    transition: transform .2s;
+    backdrop-filter: blur(16px);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 22px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 25px #0007;
+    animation: fadeIn 0.7s ease;
 }
-.card:hover {
-    transform: scale(1.02);
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .card img {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     display: block;
     margin: 10px auto 20px;
+    border-radius: 16px;
     object-fit: cover;
-    border-radius: 20px;
-    background: #000;
 }
 
 .card h2 {
     text-align: center;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
     font-size: 26px;
 }
 
 .option {
-    background: #00000070;
-    padding: 15px;
+    background: rgba(0,0,0,0.5);
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 12px;
     font-size: 18px;
-    border-radius: 14px;
-    margin: 10px 0;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .order-btn {
     width: 100%;
     padding: 15px;
-    background: #00ffa6;
+    background: #00e6a8;
     border: none;
-    border-radius: 14px;
+    border-radius: 13px;
+    color: #000;
     font-size: 20px;
     font-weight: bold;
     margin-top: 15px;
-    cursor: pointer;
 }
-.order-btn:hover { opacity: 0.85; }
+.order-btn:hover { opacity: .85; cursor: pointer; }
+
+/* زر واتساب ثابت */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 18px;
+    left: 18px;
+    background: #25D366;
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 12px #000;
+    font-weight: bold;
+}
+.whatsapp-btn:hover { opacity: .85; }
 </style>
 
 </head>
 <body>
 
-<header>Unknown Store</header>
+<header>⚡ Unknown Store اشتراكات</header>
 
-<div id="content"></div>
+<div id="content" class="store"></div>
+
+<!-- زر تواصل ثابت -->
+<a href="https://wa.me/447893920060" class="whatsapp-btn">تواصل معنا</a>
 
 <script>
-const data = [
+const services = [
     {
-        img: "https://i.imgur.com/WfYVx1A.png",
+        img: "https://i.imgur.com/9i3YyNv.png",
         name: "Snapchat+",
         prices: ["3 أشهر — 250 MRU", "6 أشهر — 450 MRU", "12 شهر — 900 MRU"]
     },
     {
-        img: "https://i.imgur.com/4kt3Lz8.png",
+        img: "https://i.imgur.com/ALpE7JG.png",
         name: "Netflix",
         prices: ["شهر — 200 MRU", "حساب كامل — 700 MRU"]
     },
     {
-        img: "https://i.imgur.com/QLO8pGi.png",
+        img: "https://i.imgur.com/VNqnuG3.png",
         name: "Shahid VIP",
         prices: ["شهر — 200 MRU"]
     },
     {
-        img: "https://i.imgur.com/ihluw0S.png",
+        img: "https://i.imgur.com/nVNq2yo.png",
         name: "ChatGPT",
         prices: ["شهر — 650 MRU"]
     },
     {
-        img: "https://i.imgur.com/CELGmUH.png",
+        img: "https://i.imgur.com/xonbX8Y.png",
         name: "TikTok Coins",
         prices: [
             "70 Coins — 50 MRU",
@@ -117,20 +143,21 @@ const data = [
     }
 ];
 
-const container = document.getElementById("content");
+const box = document.getElementById("content");
 
-data.forEach(service => {
-    let card = `<div class="card">
-        <img src="${service.img}">
-        <h2>${service.name}</h2>
-        ${service.prices.map(p => `<div class="option">${p}</div>`).join("")}
-        <button onclick="order('${service.name}')" class="order-btn">اطلب الآن</button>
+services.forEach(s => {
+    let card = `
+    <div class="card">
+        <img src="${s.img}">
+        <h2>${s.name}</h2>
+        ${s.prices.map(p => `<div class="option">${p}</div>`).join("")}
+        <button class="order-btn" onclick="order('${s.name}')">اطلب الآن</button>
     </div>`;
-    container.innerHTML += card;
+    box.innerHTML += card;
 });
 
-function order(service){
-    window.location.href = "https://wa.me/447893920060?text=أريد%20الاشتراك%20في%20" + encodeURIComponent(service);
+function order(name){
+    window.location.href = "https://wa.me/447893920060?text=أريد%20طلب%20اشتراك%20" + encodeURIComponent(name);
 }
 </script>
 
